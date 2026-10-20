@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Wifi, Battery, Smartphone, Monitor, Code2, Moon, Sun, Download } from 'lucide-react';
+import { Wifi, Battery, Smartphone, Monitor, Code2, Moon, Sun } from 'lucide-react';
 
 interface AndroidFrameProps {
   children: React.ReactNode;
@@ -7,7 +7,6 @@ interface AndroidFrameProps {
   onToggleDarkMode: () => void;
   activeView: string;
   onOpenCodeViewer: () => void;
-  onOpenApkModal: () => void;
 }
 
 export const AndroidFrame: React.FC<AndroidFrameProps> = ({
@@ -15,7 +14,6 @@ export const AndroidFrame: React.FC<AndroidFrameProps> = ({
   darkMode,
   onToggleDarkMode,
   onOpenCodeViewer,
-  onOpenApkModal,
 }) => {
   const [currentTime, setCurrentTime] = useState('');
   const [deviceFrameMode, setDeviceFrameMode] = useState<boolean>(true);
@@ -67,16 +65,6 @@ export const AndroidFrame: React.FC<AndroidFrameProps> = ({
                 <span>Phone Frame</span>
               </>
             )}
-          </button>
-
-          {/* Download APK (.zip) */}
-          <button
-            onClick={onOpenApkModal}
-            className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-emerald-600 hover:bg-emerald-500 text-white font-bold transition shadow-xs cursor-pointer"
-            title="Download ReminderHub APK & Installation ZIP"
-          >
-            <Download className="w-3.5 h-3.5" />
-            <span>Download APK (.zip)</span>
           </button>
 
           {/* Android Kotlin Source Explorer */}

@@ -23,7 +23,6 @@ interface SettingsViewProps {
   profile: StudentProfile;
   onUpdateProfile: (updated: Partial<StudentProfile>) => void;
   onOpenCodeViewer: () => void;
-  onOpenApkModal: () => void;
   onShowToast: (msg: string) => void;
 }
 
@@ -31,7 +30,6 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
   profile,
   onUpdateProfile,
   onOpenCodeViewer,
-  onOpenApkModal,
   onShowToast,
 }) => {
   const [name, setName] = useState(profile.name);
@@ -221,19 +219,12 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
           </div>
           <div className="flex-1">
             <h3 className="text-xs font-bold text-slate-900 dark:text-white">
-              Native Android Project & APK
+              Native Android Project
             </h3>
             <p className="text-[11px] text-slate-600 dark:text-slate-300 mt-0.5 leading-relaxed">
-              Inspect complete Kotlin + Jetpack Compose + Room code or download the ready-to-build Android Studio ZIP package.
+              Inspect the Kotlin, Jetpack Compose, and Room source code.
             </p>
             <div className="flex flex-wrap items-center gap-2 mt-2.5">
-              <button
-                onClick={onOpenApkModal}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs transition cursor-pointer shadow-xs active:scale-95"
-              >
-                <Download className="w-3.5 h-3.5" />
-                <span>Download APK (.zip)</span>
-              </button>
               <button
                 onClick={onOpenCodeViewer}
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white dark:bg-slate-800 border border-indigo-200 dark:border-indigo-800 text-indigo-700 dark:text-indigo-300 font-semibold text-xs transition cursor-pointer hover:bg-indigo-50"

@@ -66,7 +66,7 @@ export const AndroidProjectViewer: React.FC<AndroidProjectViewerProps> = ({
           <div>
             <div className="flex items-center gap-1.5 font-bold text-white text-sm">
               <Smartphone className="w-4 h-4 text-emerald-400" />
-              <span>Native Android APK Source Hub</span>
+              <span>Native Android Source Hub</span>
             </div>
             <span className="text-[10px] text-slate-400">
               Kotlin · Jetpack Compose · Room · WorkManager · com.example.reminderhub
@@ -75,15 +75,6 @@ export const AndroidProjectViewer: React.FC<AndroidProjectViewerProps> = ({
         </div>
 
         <div className="flex items-center gap-2">
-          <a
-            href="/downloads/ReminderHub-APK.zip"
-            download="ReminderHub-APK.zip"
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-sm shadow-emerald-900/50 transition cursor-pointer active:scale-95"
-          >
-            <Download className="w-3.5 h-3.5" />
-            <span>Download APK (.zip)</span>
-          </a>
-
           {/* 1-Click ZIP Download */}
           <button
             onClick={handleDownloadZip}

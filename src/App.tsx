@@ -14,7 +14,6 @@ import { AddEditModal } from './components/AddEditModal';
 import { ReminderDetailsModal } from './components/ReminderDetailsModal';
 import { NotificationDrawer } from './components/NotificationDrawer';
 import { AndroidProjectViewer } from './components/AndroidProjectViewer';
-import { ApkDownloadModal } from './components/ApkDownloadModal';
 import { OnboardingView } from './views/OnboardingView';
 import { HomeDashboard } from './views/HomeDashboard';
 import { TasksView, TaskTab } from './views/TasksView';
@@ -39,7 +38,6 @@ export default function App() {
 
   const [isNotificationDrawerOpen, setIsNotificationDrawerOpen] = useState(false);
   const [isAndroidCodeViewerOpen, setIsAndroidCodeViewerOpen] = useState(false);
-  const [isApkModalOpen, setIsApkModalOpen] = useState(false);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
 
   // Subscribe to storage changes
@@ -185,7 +183,6 @@ export default function App() {
       onToggleDarkMode={handleToggleDarkMode}
       activeView={currentTab}
       onOpenCodeViewer={() => setIsAndroidCodeViewerOpen(true)}
-      onOpenApkModal={() => setIsApkModalOpen(true)}
     >
       {/* If onboarding not completed, render Onboarding flow */}
       {!profile.onboardingCompleted ? (
@@ -256,7 +253,6 @@ export default function App() {
                 profile={profile}
                 onUpdateProfile={handleUpdateProfile}
                 onOpenCodeViewer={() => setIsAndroidCodeViewerOpen(true)}
-                onOpenApkModal={() => setIsApkModalOpen(true)}
                 onShowToast={showToast}
               />
             )}
@@ -300,13 +296,6 @@ export default function App() {
         notifications={notifications}
         onClear={() => StorageService.clearNotifications()}
         onSelectReminder={handleSelectReminderFromNotif}
-      />
-
-      {/* APK & ZIP Download Modal */}
-      <ApkDownloadModal
-        isOpen={isApkModalOpen}
-        onClose={() => setIsApkModalOpen(false)}
-        onShowToast={showToast}
       />
 
       {/* Global Toast Notification */}
