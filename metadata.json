@@ -1,0 +1,6 @@
+{
+  "name": "ReminderHub – Student Reminder & Planner",
+  "description": "Smart student reminder and planner app for managing college assignments, exams, fees, events, and personal tasks.",
+  "requestFramePermissions": ["notifications"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4F46E5" />
+      <stop offset="100%" stop-color="#7C3AED" />
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="128" fill="url(#grad)" />
+  <!-- Bell Icon & Cap inside safe zone -->
+  <path d="M256 120c-53 0-96 43-96 96v80l-32 32v16h256v-16l-32-32v-80c0-53-43-96-96-96z" fill="#ffffff" />
+  <circle cx="256" cy="384" r="32" fill="#FBBF24" />
+  <path d="M210 120l46-40 46 40z" fill="#FDE68A" />
+</svg>
