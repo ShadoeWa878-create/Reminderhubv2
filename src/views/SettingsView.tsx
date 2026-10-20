@@ -23,6 +23,7 @@ interface SettingsViewProps {
   profile: StudentProfile;
   onUpdateProfile: (updated: Partial<StudentProfile>) => void;
   onOpenCodeViewer: () => void;
+  onOpenApkModal: () => void;
   onShowToast: (msg: string) => void;
 }
 
@@ -30,6 +31,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
   profile,
   onUpdateProfile,
   onOpenCodeViewer,
+  onOpenApkModal,
   onShowToast,
 }) => {
   const [name, setName] = useState(profile.name);
@@ -212,29 +214,34 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
       </div>
 
       {/* Native Android Project Exporter Banner */}
-      <div className="p-4 rounded-3xl bg-gradient-to-br from-indigo-50 to-violet-50 dark:from-indigo-950/40 dark:to-violet-950/40 border border-indigo-200 dark:border-indigo-800 shadow-2xs space-y-2.5">
+      <div className="p-4 rounded-3xl bg-gradient-to-br from-indigo-50 to-violet-50 dark:from-indigo-950/40 dark:to-violet-950/40 border border-indigo-200 dark:border-indigo-800 shadow-2xs">
         <div className="flex items-start gap-3">
           <div className="w-10 h-10 rounded-2xl bg-indigo-600 text-white flex items-center justify-center shrink-0 shadow-sm">
             <Code2 className="w-5 h-5" />
           </div>
           <div className="flex-1">
             <h3 className="text-xs font-bold text-slate-900 dark:text-white">
-              Offline Android APK & Source Package
+              Native Android Project & APK
             </h3>
             <p className="text-[11px] text-slate-600 dark:text-slate-300 mt-0.5 leading-relaxed">
-              Fully offline-ready student planner. Download complete Android Studio project with build scripts or install directly onto your device.
+              Inspect complete Kotlin + Jetpack Compose + Room code or download the ready-to-build Android Studio ZIP package.
             </p>
+            <div className="flex flex-wrap items-center gap-2 mt-2.5">
+              <button
+                onClick={onOpenApkModal}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs transition cursor-pointer shadow-xs active:scale-95"
+              >
+                <Download className="w-3.5 h-3.5" />
+                <span>Download APK (.zip)</span>
+              </button>
+              <button
+                onClick={onOpenCodeViewer}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white dark:bg-slate-800 border border-indigo-200 dark:border-indigo-800 text-indigo-700 dark:text-indigo-300 font-semibold text-xs transition cursor-pointer hover:bg-indigo-50"
+              >
+                <span>Kotlin Code Explorer</span>
+              </button>
+            </div>
           </div>
-        </div>
-
-        <div className="flex flex-wrap gap-2 pt-1">
-          <button
-            onClick={onOpenCodeViewer}
-            className="flex-1 min-w-[140px] py-2 px-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs transition cursor-pointer shadow-xs flex items-center justify-center gap-1.5"
-          >
-            <Download className="w-3.5 h-3.5" />
-            <span>Download Offline APK ZIP</span>
-          </button>
         </div>
       </div>
 

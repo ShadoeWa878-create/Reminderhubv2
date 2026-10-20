@@ -64,36 +64,6 @@ You can transfer \`app-debug.apk\` to any Android smartphone via WhatsApp, Googl
 `,
   },
   {
-    path: 'build-apk.sh',
-    name: 'build-apk.sh',
-    language: 'bash',
-    description: 'One-click shell script to compile debug APK on Linux/macOS',
-    content: `#!/usr/bin/env bash
-echo "Building ReminderHub APK (com.example.reminderhub)..."
-chmod +x gradlew
-./gradlew assembleDebug
-echo ""
-echo "=========================================================="
-echo "SUCCESS: APK generated at app/build/outputs/apk/debug/app-debug.apk"
-echo "=========================================================="
-`,
-  },
-  {
-    path: 'build-apk.bat',
-    name: 'build-apk.bat',
-    language: 'batch',
-    description: 'One-click batch script to compile debug APK on Windows',
-    content: `@echo off
-echo Building ReminderHub APK (com.example.reminderhub)...
-call gradlew.bat assembleDebug
-echo.
-echo ==========================================================
-echo SUCCESS: APK generated at app/build/outputs/apk/debug/app-debug.apk
-echo ==========================================================
-pause
-`,
-  },
-  {
     path: 'build.gradle.kts',
     name: 'build.gradle.kts (Project)',
     language: 'kotlin',

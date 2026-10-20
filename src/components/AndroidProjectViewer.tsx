@@ -37,12 +37,12 @@ export const AndroidProjectViewer: React.FC<AndroidProjectViewerProps> = ({
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = 'ReminderHub-Offline-APK-Project.zip';
+      a.download = 'ReminderHub-Android-Studio-Project.zip';
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
       URL.revokeObjectURL(url);
-      onShowToast('ReminderHub-Offline-APK-Project.zip downloaded!');
+      onShowToast('ReminderHub-Android-Studio-Project.zip downloaded!');
     } catch (err) {
       console.error('Error generating zip:', err);
       alert('Failed to generate project zip.');
@@ -66,7 +66,7 @@ export const AndroidProjectViewer: React.FC<AndroidProjectViewerProps> = ({
           <div>
             <div className="flex items-center gap-1.5 font-bold text-white text-sm">
               <Smartphone className="w-4 h-4 text-emerald-400" />
-              <span>Offline APK & Native Source Hub</span>
+              <span>Native Android APK Source Hub</span>
             </div>
             <span className="text-[10px] text-slate-400">
               Kotlin · Jetpack Compose · Room · WorkManager · com.example.reminderhub
@@ -74,15 +74,26 @@ export const AndroidProjectViewer: React.FC<AndroidProjectViewerProps> = ({
           </div>
         </div>
 
-        {/* 1-Click ZIP Download */}
-        <button
-          onClick={handleDownloadZip}
-          disabled={isZipping}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-sm shadow-emerald-900/50 transition cursor-pointer active:scale-95 disabled:opacity-50"
-        >
-          <Download className="w-3.5 h-3.5" />
-          <span>{isZipping ? 'Zipping...' : 'Download Offline APK ZIP'}</span>
-        </button>
+        <div className="flex items-center gap-2">
+          <a
+            href="/downloads/ReminderHub-APK.zip"
+            download="ReminderHub-APK.zip"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-sm shadow-emerald-900/50 transition cursor-pointer active:scale-95"
+          >
+            <Download className="w-3.5 h-3.5" />
+            <span>Download APK (.zip)</span>
+          </a>
+
+          {/* 1-Click ZIP Download */}
+          <button
+            onClick={handleDownloadZip}
+            disabled={isZipping}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold text-xs transition cursor-pointer active:scale-95 disabled:opacity-50"
+          >
+            <Download className="w-3.5 h-3.5 text-indigo-400" />
+            <span>{isZipping ? 'Zipping...' : 'Studio Project (.zip)'}</span>
+          </button>
+        </div>
       </div>
 
       {/* Main Split Body */}
